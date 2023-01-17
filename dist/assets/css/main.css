@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+    line-height: calc(1em + 0.725rem);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+main {
+    display: block;
+}
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background: none;
+    cursor: pointer;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+.container {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    color: #fff;
+}
+
+.burger {
+    position: relative;
+    display: none;
+    z-index: 2;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    pointer-events: initial;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+}
+
+.burger.active span {
+    background-color: transparent;
+    transition: background 0.2s ease-out;
+}
+
+.burger.active span::before, .burger.active span::after {
+    transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+    background-color: rgb(213, 74, 74);
+}
+
+.burger.active span::before {
+    top: 0;
+    transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.burger.active span::after {
+    top: 0;
+    transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.burger span {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 13px);
+    display: block;
+    height: 2px;
+    width: 26px;
+    transform-origin: 50% 50%;
+    transition: 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
+    background-color: rgb(213, 74, 74);
+}
+
+.burger span::before, .burger span::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 26px;
+    background-color: rgb(213, 74, 74);
+    transform-origin: 50% 50%;
+    transition: 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
+}
+
+.burger span::before {
+    top: 7px;
+}
+
+.burger span::after {
+    top: -7px;
+}
+
+.header {
+    padding: 15px 0;
+    background-color: rgb(35, 69, 105);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+}
+
+.header__buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .header__buttons {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+}
+
+.menu {
+    margin-left: 40px;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+        padding: 40px 0;
+        width: 100%;
+        min-height: 100%;
+        background-color: rgb(28, 54, 69);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    }
+}
+
+.menu__body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu__body {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.menu__link {
+    position: relative;
+    color: rgb(255, 255, 255);
+    transition: color 0.2s ease-in-out;
+}
+
+.menu__link:hover {
+    color: rgb(246, 209, 0);
+}
+
+.menu__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background: rgb(246, 209, 0);
+    border-radius: 5px;
+    transform: scale(0);
+    transition: 200ms ease-in;
+}
+
+.menu__link:hover::after {
+    transform: scale(1);
+}
