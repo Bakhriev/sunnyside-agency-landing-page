@@ -46,6 +46,10 @@ img {
     max-width: 100%;
 }
 
+svg {
+    display: block;
+}
+
 ul {
     list-style: none;
 }
@@ -75,19 +79,15 @@ body {
 }
 
 .container {
-    max-width: 1230px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 15px;
-}
-
-.btn {
-    color: #fff;
+    padding: 0 20px;
 }
 
 .burger {
     position: relative;
     display: none;
-    z-index: 2;
+    z-index: 12;
     height: 30px;
     width: 30px;
     padding: 0;
@@ -109,7 +109,7 @@ body {
 
 .burger.active span::before, .burger.active span::after {
     transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
-    background-color: rgb(213, 74, 74);
+    background-color: rgb(255, 255, 255);
 }
 
 .burger.active span::before {
@@ -131,7 +131,7 @@ body {
     width: 26px;
     transform-origin: 50% 50%;
     transition: 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
-    background-color: rgb(213, 74, 74);
+    background-color: rgb(255, 255, 255);
 }
 
 .burger span::before, .burger span::after {
@@ -139,7 +139,7 @@ body {
     position: absolute;
     height: 2px;
     width: 26px;
-    background-color: rgb(213, 74, 74);
+    background-color: rgb(255, 255, 255);
     transform-origin: 50% 50%;
     transition: 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
 }
@@ -152,39 +152,67 @@ body {
     top: -7px;
 }
 
+body {
+    font-family: Barlow, serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 .header {
-    padding: 15px 0;
+    padding: 30px 0;
+    min-height: 100vh;
     background-color: rgb(35, 69, 105);
+    background: url(../img/desktop/image-header.jpg) no-repeat bottom/cover;
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        background: url(../img/mobile/image-header.jpg) no-repeat bottom/cover;
+    }
 }
 
 .header__container {
     display: flex;
     align-items: center;
-}
-
-.header__navigation {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    color: white;
 }
 
-.header__buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.header__scroll-arrow {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 15px);
+    transform: translateY(-50%);
 }
 
-@media screen and (max-width: 768px) {
-    .header__buttons {
-        margin-left: auto;
-        margin-right: 20px;
+@media screen and (max-width: 480px) {
+    .header__scroll-arrow {
+        top: 65%;
     }
 }
 
-.menu {
-    margin-left: 40px;
+.header__title-wrapper {
+    margin: 0 auto;
+    padding: 0 15px;
+    padding-top: 100px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.header__title {
+    font-family: Fraunces, serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+    .header__title {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
 }
 
 .menu.active {
@@ -198,6 +226,7 @@ body {
         left: 0;
         top: 0;
         margin-left: 0;
+        z-index: 10;
         display: flex;
         align-items: center;
         padding: 40px 0;
@@ -213,7 +242,7 @@ body {
 .menu__body {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 }
 
 @media screen and (max-width: 768px) {
@@ -223,6 +252,29 @@ body {
     }
 }
 
+.menu__button {
+    display: inline-block;
+    padding: 15px 20px;
+    font-family: Fraunces, serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 35px;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu__button:hover {
+    background-color: hsl(200deg, 100%, 72%);
+    color: #fff;
+}
+
+.menu__button:active {
+    background-color: hsl(198deg, 62%, 26%);
+}
+
 .menu__link {
     position: relative;
     color: rgb(255, 255, 255);
@@ -230,7 +282,7 @@ body {
 }
 
 .menu__link:hover {
-    color: rgb(246, 209, 0);
+    color: hsl(51deg, 100%, 49%);
 }
 
 .menu__link::after {
@@ -240,7 +292,7 @@ body {
     bottom: -6px;
     height: 2px;
     width: 100%;
-    background: rgb(246, 209, 0);
+    background: hsl(51deg, 100%, 49%);
     border-radius: 5px;
     transform: scale(0);
     transition: 200ms ease-in;
