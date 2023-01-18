@@ -405,11 +405,13 @@ body {
 .graphick {
     padding: 0;
     padding-bottom: 50px;
+    text-align: center;
 }
 
 .photopraphy {
     padding: 0;
     padding-bottom: 50px;
+    text-align: center;
 }
 
 .last-item {
@@ -474,4 +476,23 @@ body {
     font-weight: 900;
     font-size: 18px;
     color: #000;
+}
+
+.gallery {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+    }
+}
+
+.gallery__row {
+    display: flex;
+    flex: 0 1 50%;
+}
+
+.gallery__item {
+    flex: 0 1 50%;
 }
