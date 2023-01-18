@@ -158,6 +158,10 @@ body {
     font-weight: 600;
 }
 
+.locked {
+    overflow: hidden;
+}
+
 .header {
     padding: 30px 0;
     min-height: 100vh;
@@ -225,13 +229,11 @@ body {
         position: absolute;
         left: 0;
         top: 0;
-        margin-left: 0;
         z-index: 10;
         display: flex;
         align-items: center;
-        padding: 40px 0;
         width: 100%;
-        min-height: 100%;
+        min-height: 100vh;
         background-color: rgb(28, 54, 69);
         opacity: 0;
         visibility: hidden;
@@ -300,4 +302,117 @@ body {
 
 .menu__link:hover::after {
     transform: scale(1);
+}
+
+.advantage {
+    display: flex;
+    flex-direction: column;
+}
+
+.advantage__row {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .advantage__row {
+        flex-wrap: wrap;
+    }
+}
+
+.advantage__row-item {
+    position: relative;
+    flex: 0 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .advantage__row-item {
+        flex: 0 1 100%;
+        min-height: 600px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .advantage__row-item.egg {
+        order: -1;
+    }
+}
+
+.advantage__row-item img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.advantage__row-item__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 100px 50px;
+    max-width: 390px;
+}
+
+@media screen and (max-width: 768px) {
+    .advantage__row-item__inner {
+        align-items: center;
+    }
+}
+
+.advantage__row-item__title {
+    font-family: Fraunces, serif;
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 1.1;
+}
+
+.advantage__row-item__subtitle {
+    font-size: 16px;
+    color: gray;
+}
+
+.advantage__row-item__button {
+    width: -moz-max-content;
+    width: max-content;
+    font-family: Fraunces, serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.yellow-btn {
+    border-bottom: 4px solid yellow;
+}
+
+.red-btn {
+    border-bottom: 4px solid red;
+}
+
+.green-text {
+    color: hsl(167deg, 40%, 24%);
+}
+
+.blue-text {
+    color: hsl(198deg, 62%, 26%);
+}
+
+.graphick {
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+.photopraphy {
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+.last-item {
+    padding-top: 400px;
+    align-items: flex-end;
 }
