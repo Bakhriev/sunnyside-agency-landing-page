@@ -416,3 +416,62 @@ body {
     padding-top: 400px;
     align-items: flex-end;
 }
+
+.client {
+    padding: 100px 0;
+}
+
+.client__inner {
+    text-align: center;
+}
+
+.client__title {
+    margin-bottom: 100px;
+    text-transform: uppercase;
+    color: gray;
+    letter-spacing: 0.3rem;
+}
+
+.client__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .client__row {
+        flex-direction: column;
+        gap: 80px;
+    }
+}
+
+.client__row-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    flex: 0 1 33.333%;
+}
+
+.client-avatar {
+    width: 80px;
+    -webkit-clip-path: circle();
+    clip-path: circle();
+}
+
+.client-feedback {
+    max-width: 300px;
+}
+
+.client-about {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-family: Fraunces, serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #000;
+}
